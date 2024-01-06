@@ -3,6 +3,7 @@
 }
 
 /* Basic Style */
+
 body {
   background-color: #f8f8f8;
   color: #333;
@@ -22,12 +23,6 @@ body {
 
 .eisenhower-matrix .eisenhower-matrix__more-info {
   font-family: fantasy, cursive;
-}
-
-@media (max-width:768px) {
-  .eisenhower-matrix { 
-    text-align: center;
-  }
 }
 
 .list {
@@ -58,7 +53,7 @@ h3 {
 }
 
 input,
-button{
+button {
   outline: none;
 }
 
@@ -77,6 +72,7 @@ button:hover {
 }
 
 /* Heading */
+
 h3,
 label[for='new-task'] {
   color: #333;
@@ -112,6 +108,7 @@ input[type="text"]:focus {
 }
 
 /* Task list */
+
 li {
   overflow: hidden;
   padding: 20px 0;
@@ -147,12 +144,14 @@ button.list__delete-task img:hover {
 }
 
 /* Completed */
+
 #completed-tasks label {
   text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */
+
 ul li input[type=text] {
   display: none;
 }
@@ -164,4 +163,10 @@ ul li.list__edit-mode input[type=text] {
 
 ul li.list__edit-mode label {
   display: none;
+}
+
+@media (max-width:768px) {
+  .eisenhower-matrix { 
+    text-align: center;
+  }
 }
