@@ -5,12 +5,14 @@
 //Solution: Add interactivity so the user can manage daily tasks.
 //Break things down into smaller steps and take each step at a time.
 
+
 // Event handling, user interaction is what starts the code execution.
 
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
+var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incompleteTasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+
 
 //New task list item
 var createNewTaskElement=function(taskString){
@@ -33,8 +35,8 @@ var createNewTaskElement=function(taskString){
   editInput.type="text";
   editInput.className="task";  
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className="edit";  
-  deleteButton.className="delete";
+  editButton.className="list__edit-task";  
+  deleteButton.className="list__delete-task";
   deleteButtonImg.src='./remove.svg';
   deleteButton.appendChild(deleteButtonImg);  
   //and appending.
@@ -45,6 +47,8 @@ var createNewTaskElement=function(taskString){
   listItem.appendChild(deleteButton);
   return listItem;
 }
+
+
 
 var addTask=function(){
   console.log("Add Task...");
@@ -58,14 +62,20 @@ var addTask=function(){
 }
 
 //Edit an existing task.
+
 var editTask=function(){
   console.log("Edit Task...");
   console.log("Change 'edit' to 'save'");
+
   var listItem=this.parentNode;
+  console.log(listItem)
+
   var editInput=listItem.querySelector('input[type=text]');
+  console.log(editInput)
   var label=listItem.querySelector("label");
-  var editBtn=listItem.querySelector(".edit");
-  var containsClass=listItem.classList.contains("editMode");
+  var editBtn=listItem.querySelector(".list__edit-task");
+  console.log(editBtn)
+  var containsClass=listItem.classList.contains("list__edit-mode");
   //If class of the parent is .editmode
   if(containsClass){
     //switch to .editmode
@@ -77,8 +87,9 @@ var editTask=function(){
     editBtn.innerText="Save";
   }
   //toggle .editmode on the parent.
-  listItem.classList.toggle("editMode");
+  listItem.classList.toggle("list__edit-mode");
 };
+
 
 //Delete task.
 var deleteTask=function(){
@@ -122,8 +133,8 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
   console.log("bind list item events");
 //select ListItems children
   var checkBox=taskListItem.querySelector("input[type=checkbox]");
-  var editButton=taskListItem.querySelector("button.edit");
-  var deleteButton=taskListItem.querySelector("button.delete");
+  var editButton=taskListItem.querySelector("button.list__edit-task");
+  var deleteButton=taskListItem.querySelector("button.list__delete-task");
   //Bind editTask to edit button.
   editButton.onclick=editTask;
   //Bind deleteTask to delete button.
