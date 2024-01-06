@@ -38,6 +38,7 @@ var createNewTaskElement=function(taskString){
   editButton.className="list__edit-task";  
   deleteButton.className="list__delete-task";
   deleteButtonImg.src='./remove.svg';
+  deleteButtonImg.setAttribute('alt', 'remove-button');
   deleteButton.appendChild(deleteButtonImg);  
   //and appending.
   listItem.appendChild(checkBox);
@@ -47,8 +48,6 @@ var createNewTaskElement=function(taskString){
   listItem.appendChild(deleteButton);
   return listItem;
 }
-
-
 
 var addTask=function(){
   console.log("Add Task...");
