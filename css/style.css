@@ -34,7 +34,7 @@ body {
 .task {
   width: 56%;
   display: inline-block;
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 .list__add-task {
@@ -43,7 +43,7 @@ body {
 }
 
 ul {
-  margin:0;
+  margin: 0;
   padding: 0px;
 }
 
@@ -130,7 +130,7 @@ li > label {
 }
 
 input[type="text"] {
-  width: 226px
+  width: 226px;
 }
 
 .list__delete-task img {
